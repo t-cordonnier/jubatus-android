@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -83,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
                     int end = json.indexOf("\"", start);
                     result = json.substring(start, end);
                     textColor = 0xFF000000; // Noir
+                    Log.d("API_RESPONSE", "JSON complet reçu: " + json);
+                    Log.d("API_RESPONSE", "Message extrait: " + result);
                 } else {
                     // Erreur HTTP
                     result = "Erreur HTTP: " + response.code() + " - " + response.message();
