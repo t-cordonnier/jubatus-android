@@ -79,12 +79,12 @@ public class MainActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     // Succès: parse le JSON
                     String json = response.body().string();
+                    Log.d("API_RESPONSE", "JSON complet reçu: " + json);
                     // Extraire le message (format: {"message": "..."})
-                    int start = json.indexOf("\"message\":\"") + 11;
+                    int start = json.indexOf("\"message\":\"") + 14;
                     int end = json.indexOf("\"", start);
                     result = json.substring(start, end);
                     textColor = 0xFF000000; // Noir
-                    Log.d("API_RESPONSE", "JSON complet reçu: " + json);
                     Log.d("API_RESPONSE", "Message extrait: " + result);
                 } else {
                     // Erreur HTTP
